@@ -28,7 +28,7 @@ fi
 age=10
 if [ $age -gt 18 ] && [ $age -lt 20 ]
 then echo "the first condition passed"
-elif [[ "$age" -lt 15 ]] && [ "$age" -gt 5 ]
+elif [ "$age" -lt 15 ] && [ "$age" -gt 5 ]
 then echo "the second condition passed"
 elif [ $age -eq 2 -a $age -lt 12 ] # -a is for &&
 then echo " the this condition passed "
@@ -38,8 +38,7 @@ fi
 # another block
 year=22
 if (( $year == 33  )) && (( $year < 18 ))
-then 
-  " first condition passed "
+then echo" first condition passed "
 elif (( $year == 44 && $year < 20 ))
 then echo " the second condition passed "
 elif (( $year <= 12 || $year != 22 ))
@@ -48,3 +47,12 @@ elif [ $year -eq 12 -o $year == 22 ] # -o for or ||
 then echo " the fourth condition passed "
 else echo " i dont know "
 fi 
+
+#test block
+test_var="stringer"
+if (($test_var == "stringer"))&&(($test_var != "string")) # when the condition contains an equalto sign use two brackets.
+then echo "The content is a stringer"
+elif(($test_var == "stringer"))&&(($test_var == 22))
+then echo "This condition will never pass"
+else echo "the variable is unknown."
+fi
